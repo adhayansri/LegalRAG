@@ -1,0 +1,281 @@
+/* Dark modern theme for LegalRAG */
+:root {
+    --bg: #071025;
+    --surface: #0b1220;
+    --muted: #9fb3c8;
+    --text: #e6eef8;
+    --accent: #2ba6ff;
+    --accent-2: #6dd3ff;
+    --card: #081726;
+    --radius: 12px;
+    --sidebar-width: 280px;
+    --max-width: 1100px;
+}
+
+* {
+    box-sizing: border-box
+}
+
+html,
+body,
+#root {
+    height: 100%
+}
+
+body.lr-dark,
+body {
+    background: linear-gradient(180deg, var(--bg), #02101a);
+    color: var(--text);
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    margin: 0
+}
+
+.container-centered {
+    max-width: var(--max-width);
+    margin: 18px auto;
+    padding: 0 16px
+}
+
+/* Header */
+.app-navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 0
+}
+
+.brand {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--text);
+    letter-spacing: 0.4px
+}
+
+.help-link {
+    color: var(--muted);
+    text-decoration: none
+}
+
+.header-row {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 12px
+}
+
+.app-title {
+    margin: 0;
+    font-size: 1.6rem
+}
+
+.app-sub {
+    margin: 4px 0 0;
+    color: var(--muted);
+    font-size: 0.95rem
+}
+
+/* Layout */
+.d-flex {
+    display: flex
+}
+
+.flex-fill {
+    flex: 1
+}
+
+.ms-3 {
+    margin-left: 12px
+}
+
+.sidebar {
+    width: var(--sidebar-width);
+    background: linear-gradient(180deg, var(--surface), #061425);
+    border-radius: var(--radius);
+    padding: 12px;
+    min-height: 60vh
+}
+
+.card {
+    background: linear-gradient(180deg, var(--card), #051428);
+    border-radius: var(--radius);
+    box-shadow: 0 8px 30px rgba(2, 6, 23, 0.6);
+    overflow: hidden
+}
+
+.card-body {
+    padding: 16px
+}
+
+.card-footer {
+    padding: 12px;
+    background: transparent
+}
+
+.chat-window {
+    height: 60vh;
+    overflow: auto;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px
+}
+
+.msg-bubble {
+    padding: 12px 14px;
+    border-radius: 12px;
+    max-width: 78%;
+    word-break: break-word
+}
+
+.msg-user {
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    color: #03263b;
+    align-self: flex-end;
+    border-bottom-right-radius: 6px
+}
+
+.msg-assistant {
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--text);
+    align-self: flex-start;
+    border-bottom-left-radius: 6px
+}
+
+.message-row {
+    display: flex
+}
+
+.message-row.user {
+    justify-content: flex-end
+}
+
+.message-row.assistant {
+    justify-content: flex-start
+}
+
+.btn {
+    cursor: pointer
+}
+
+.btn-primary {
+    background: var(--accent);
+    border: 0;
+    color: #03263b;
+    padding: 8px 12px;
+    border-radius: 10px
+}
+
+.btn-outline-secondary {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    color: var(--muted);
+    padding: 6px 10px;
+    border-radius: 8px
+}
+
+.input-area {
+    display: flex;
+    gap: 8px
+}
+
+textarea.form-control {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    color: var(--text);
+    padding: 10px;
+    border-radius: 10px;
+    resize: none
+}
+
+/* Source card */
+.source-card {
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 8px;
+    padding: 10px;
+    margin-top: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.02)
+}
+
+.source-act {
+    color: var(--accent);
+    font-weight: 700
+}
+
+.source-title {
+    color: var(--text);
+    font-weight: 600
+}
+
+.source-snippet {
+    color: var(--muted);
+    font-size: 0.95rem;
+    margin-top: 6px
+}
+
+/* Sidebar list */
+.list-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 8px
+}
+
+.list-group-item {
+    background: transparent;
+    border-radius: 8px;
+    padding: 8px 10px;
+    border: 1px solid rgba(255, 255, 255, 0.02);
+    color: var(--muted);
+    text-align: left
+}
+
+.list-group-item:hover {
+    background: rgba(255, 255, 255, 0.02);
+    color: var(--text)
+}
+
+/* Responsive */
+@media (max-width:900px) {
+    .d-flex {
+        flex-direction: column
+    }
+
+    .sidebar {
+        width: 100%;
+        order: 2
+    }
+
+    .flex-fill {
+        order: 1
+    }
+
+    .chat-window {
+        height: 55vh
+    }
+}
+
+/* Small tweaks */
+.small {
+    text-transform: none
+}
+
+.mt-2 {
+    margin-top: 8px
+}
+
+.mb-2 {
+    margin-bottom: 8px
+}
+
+.gap-2 {
+    gap: 8px
+}
+
+/* scrollbar */
+.chat-window::-webkit-scrollbar {
+    width: 10px
+}
+
+.chat-window::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 10px
+}

@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    /* Color Palette */
+    --bg-dark: #030712;
+    --bg-surface: #0b1120;
+    --bg-card: rgba(15, 23, 42, 0.65);
+    
+    --border-color: rgba(255, 255, 255, 0.06);
+    --border-glow: rgba(56, 189, 248, 0.15);
+
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+    
+    --accent: #38bdf8; /* Neon Sky Blue */
+    --accent-glow: rgba(56, 189, 248, 0.25);
+    --accent-emerald: #10b981;
+    --accent-rose: #f43f5e;
+}
+
+body {
+    background-color: var(--bg-dark);
+    background-image: 
+        radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.08) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(99, 102, 241, 0.05) 0px, transparent 50%),
+        radial-gradient(at 50% 50%, rgba(15, 23, 42, 0.5) 0px, transparent 100%);
+    background-attachment: fixed;
+    color: var(--text-primary);
+    font-family: 'Plus Jakarta Sans', 'Outfit', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Glassmorphism panel */
+.glass-panel {
+    background: var(--bg-card);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-panel:hover {
+    border-color: rgba(56, 189, 248, 0.2);
+    box-shadow: 0 12px 40px -10px rgba(56, 189, 248, 0.05);
+}
+
+/* Suggestion chip */
+.custom-chip {
+    @apply inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200 cursor-pointer select-none;
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+}
+
+.custom-chip:hover {
+    color: var(--accent);
+    background: rgba(56, 189, 248, 0.08);
+    border-color: rgba(56, 189, 248, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(56, 189, 248, 0.1);
+}
+
+/* Floating Input Bar Container */
+.input-container-floating {
+    background: rgba(11, 17, 32, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid var(--border-color);
+    box-shadow: 0 -10px 25px -10px rgba(0, 0, 0, 0.5);
+}
+
+/* Custom Scrollbars */
+.custom-scroll::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+.custom-scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 9999px;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb:hover {
+    background: rgba(56, 189, 248, 0.3);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Loading dots animation */
+.dot-flashing {
+    position: relative;
+    width: 6px;
+    height: 6px;
+    border-radius: 5px;
+    background-color: var(--accent);
+    color: var(--accent);
+    animation: dot-flashing 1s infinite linear alternate;
+    animation-delay: .5s;
+}
+.dot-flashing::before, .dot-flashing::after {
+    content: '';
+    display: inline-block;
+    position: absolute;
+    top: 0;
+}
+.dot-flashing::before {
+    left: -12px;
+    width: 6px;
+    height: 6px;
+    border-radius: 5px;
+    background-color: var(--accent);
+    color: var(--accent);
+    animation: dot-flashing 1s infinite linear alternate;
+    animation-delay: 0s;
+}
+.dot-flashing::after {
+    left: 12px;
+    width: 6px;
+    height: 6px;
+    border-radius: 5px;
+    background-color: var(--accent);
+    color: var(--accent);
+    animation: dot-flashing 1s infinite linear alternate;
+    animation-delay: 1s;
+}
+
+@keyframes dot-flashing {
+    0% { background-color: var(--accent); }
+    50%, 100% { background-color: rgba(56, 189, 248, 0.2); }
+}
