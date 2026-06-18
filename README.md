@@ -80,5 +80,3 @@ Troubleshooting
 
 Contributing
 - Do not commit large binary DB files from `chroma_db/`. Add them to `.gitignore` if appropriate.
-
-If you want, I can also tidy `backend/chatbot/rag.py` (fix try/except structure) or create a `.gitignore` for common files.
